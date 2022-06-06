@@ -5,13 +5,13 @@ while lang not in ("1", "2", "3"):
     print("[1] English | [2] Francais")
     lang = input()
     if lang == "1": 
-        with open('dictionnaireen.txt') as f:
+        with open('dictio/dictionnaireen.txt') as f:
             dictio = [line.rstrip('\n') for line in f]
     elif lang == "2":
-        with open('dictionnairefr.txt') as f:
+        with open('dictio/dictionnairefr.txt') as f:
             dictio = [line.rstrip('\n') for line in f]
     elif lang == "3":
-        with open('dictiotest.txt') as f:
+        with open('dictio/ictiotest.txt') as f:
             dictio = [line.rstrip('\n') for line in f]
     else:
         print("pine ta mams on a dit 1 ou 2: ")
