@@ -1,9 +1,9 @@
 import random
-lang = "0"
+from sys import exit
+lang, tentative, nombre, orange = "0", "", 0, []
 print("Which language ?")
 while lang not in ("1", "2", "3"):
-    print("[1] English | [2] Francais")
-    lang = input()
+    lang = input("[1] English | [2] Francais \n")
     if lang == "1": 
         with open('dictio/dictionnaireen.txt') as f:
             dictio = [line.rstrip('\n') for line in f]
@@ -11,19 +11,15 @@ while lang not in ("1", "2", "3"):
         with open('dictio/dictionnairefr.txt') as f:
             dictio = [line.rstrip('\n') for line in f]
     elif lang == "3":
-        with open('dictio/ictiotest.txt') as f:
+        with open('dictio/dictiotest.txt') as f:
             dictio = [line.rstrip('\n') for line in f]
     else:
         print("pine ta mams on a dit 1 ou 2: ")
-print("Bienvenu sur le wordle !\nentrez 'help' pour voir les lettres non utilisées\nentrez 'show' pour voir la réponse")
+print("Bienvenu sur le wordle !\nentrez 'help' pour voir les lettres non utilisées\nentrez 'show' pour voir la réponse\nentrez 'quit' pour quitter")
 dictio = [each_string.lower() for each_string in dictio]
 answer = random.choice(dictio)
 replist = list(answer)
-tentative = ""
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-nombre = 1 
-lemot = ['_','_','_','_','_']
-orange = []
+lemot, alphabet = ['_','_','_','_','_'], ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 while tentative != answer:
     tentative = input("Go: ")
     tentative = tentative.lower()
@@ -32,9 +28,11 @@ while tentative != answer:
         print(alphabet)
     elif tentative == "show":
         print(answer)
+    if tentative == "quit":
+        exit("Quiting..")
     elif tentative in dictio:
-        print('Tentative n°%d' %nombre)
-        nombre = nombre + 1 
+        nombre = nombre + 1
+        print('Tentative n°%d' %nombre) 
         for i in range(5):
             if esslist[i] in alphabet:
                 alphabet.remove(esslist[i])
