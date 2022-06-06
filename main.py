@@ -1,19 +1,22 @@
 import random
 lang = "0"
 print("Which language ?")
-while lang not in ("1", "2"):
-	print("[1] English | [2] Francais ")
-	lang = input()
-	if lang == "1":
-		with open('dictionnaire.txt') as f:
-			dictio = [line.rstrip('\n') for line in f]
-	elif lang == "2":
-		with open('dictionnaire.txt') as f:
-			dictio = [line.rstrip('\n') for line in f]
-	else:
-		print("pine ta mams on a dit 1 ou 2: ")
+while lang not in ("1", "2", "3"):
+    print("[1] English | [2] Francais | [3] TESTS ")
+    lang = input()
+    if lang == "1": 
+        with open('dictionnaire.txt') as f:
+            dictio = [line.rstrip('\n') for line in f]
+    elif lang == "2":
+        with open('dictionnairefr.txt') as f:
+            dictio = [line.rstrip('\n') for line in f]
+    elif lang == "3":
+        with open('dictiotest.txt') as f:
+            dictio = [line.rstrip('\n') for line in f]
+    else:
+        print("pine ta mams on a dit 1 ou 2: ")
+dictio = [each_string.lower() for each_string in dictio]
 answer = random.choice(dictio)
-answer = answer.lower()
 replist = list(answer)
 tentative = input("Mot ? ")
 tentative = tentative.lower()
