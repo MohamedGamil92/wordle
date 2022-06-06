@@ -7,15 +7,16 @@ while lang not in ("1", "2", "3"):
     if lang == "1": 
         with open('dictio/dictionnaireen.txt') as f:
             dictio = [line.rstrip('\n') for line in f]
+        print("Welcome in my own wordle!\nenter 'help' to see the letters non used\nenter 'show' to see the answer\nenter 'quit' to quit")
     elif lang == "2":
         with open('dictio/dictionnairefr.txt') as f:
             dictio = [line.rstrip('\n') for line in f]
+        print("Bienvenu sur le wordle !\nentrez 'help' pour voir les lettres non utilisées\nentrez 'show' pour voir la réponse\nentrez 'quit' pour quitter")
     elif lang == "3":
         with open('dictio/dictiotest.txt') as f:
             dictio = [line.rstrip('\n') for line in f]
     else:
         print("pine ta mams on a dit 1 ou 2: ")
-print("Bienvenu sur le wordle !\nentrez 'help' pour voir les lettres non utilisées\nentrez 'show' pour voir la réponse\nentrez 'quit' pour quitter")
 dictio = [each_string.lower() for each_string in dictio]
 answer = random.choice(dictio)
 replist = list(answer)
