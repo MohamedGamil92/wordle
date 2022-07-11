@@ -29,7 +29,7 @@ while tentative != answer:
         print(alphabet)
     elif tentative == "show":
         print(answer)
-    if tentative == "quit":
+    elif tentative == "quit":
         exit("Quiting..")
     elif tentative in dictio:
         nombre = nombre + 1
